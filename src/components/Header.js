@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, X, Mail, Phone } from "lucide-react";
 import { navLinks, site } from "@/data/site";
@@ -10,37 +11,26 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const [section, setSection] = useState("/#home");
-  const active = pathname === "/" ? section : pathname;
+  // Highlight the nav item for the current page (and its sub-pages)
+  const active =
+    navLinks.find((l) => l.href !== "/" && pathname.startsWith(l.href))?.href ??
+    (pathname === "/" ? "/" : null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-
-    // Highlight the nav item for the section currently in view
-    const sections = navLinks
-      .filter((l) => l.href.startsWith("/#"))
-      .map((l) => document.getElementById(l.href.slice(2)))
-      .filter(Boolean);
-    const io = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => e.isIntersecting && setSection(`/#${e.target.id}`)),
-      { rootMargin: "-45% 0px -50% 0px" }
-    );
-    sections.forEach((s) => io.observe(s));
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      io.disconnect();
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     const onKey = (e) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   return (
@@ -59,7 +49,7 @@ export default function Header() {
             <ul className="flex items-center gap-1">
               {navLinks.map((l) => (
                 <li key={l.href}>
-                  <a
+                  <Link
                     href={l.href}
                     className={`relative rounded-full px-3.5 py-2 text-sm font-medium transition-colors duration-300 ${
                       active === l.href ? "text-navy" : "text-slate hover:text-navy"
@@ -71,16 +61,16 @@ export default function Header() {
                         active === l.href ? "scale-x-100" : "scale-x-0"
                       }`}
                     />
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
           <div className="flex items-center gap-3">
-            <a href="/#contact" className="btn btn-dark hidden !py-3 sm:inline-flex">
+            <Link href="/contact" className="btn btn-dark hidden !py-3 sm:inline-flex">
               Get Started <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setOpen(true)}
@@ -131,7 +121,7 @@ export default function Header() {
                   style={{ transitionDelay: open ? `${120 + i * 45}ms` : "0ms" }}
                   className={`transition-all duration-500 ${open ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0"}`}
                 >
-                  <a
+                  <Link
                     href={l.href}
                     onClick={() => setOpen(false)}
                     tabIndex={open ? 0 : -1}
@@ -141,7 +131,7 @@ export default function Header() {
                   >
                     {l.label}
                     <ArrowRight className="h-5 w-5 opacity-40" />
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -154,14 +144,14 @@ export default function Header() {
             <a href={site.phoneHref} className="flex items-center gap-3" tabIndex={open ? 0 : -1}>
               <Phone className="h-4 w-4 text-cyan" /> {site.phone}
             </a>
-            <a
-              href="/#contact"
+            <Link
+              href="/contact"
               onClick={() => setOpen(false)}
               tabIndex={open ? 0 : -1}
               className="btn btn-primary mt-4 w-full"
             >
               Start a Research Project <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
             <SocialLinks className="pt-4" />
           </div>
         </aside>

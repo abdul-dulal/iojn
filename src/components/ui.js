@@ -1,11 +1,13 @@
 import {
-  Atom, Award, BookOpen, Building2, ChartColumn, Circle, ClipboardList, Cpu, Database, Globe,
-  GraduationCap, HeartPulse, Leaf, Lightbulb, Microscope, PenTool, Search, Send, ShieldCheck, Users,
+  Atom, Award, Bike, BookOpen, Building2, Bus, Car, ChartColumn, Circle, ClipboardList, Cpu, Database, Globe,
+  GraduationCap, Handshake, HeartPulse, Layers, Leaf, Lightbulb, Microscope, PenTool, Scale, Search, Send,
+  ShieldCheck, Target, TrainFront, Users,
 } from "lucide-react";
 
 const icons = {
-  Atom, Award, BookOpen, Building2, ChartColumn, ClipboardList, Cpu, Database, Globe,
-  GraduationCap, HeartPulse, Leaf, Lightbulb, Microscope, PenTool, Search, Send, ShieldCheck, Users,
+  Atom, Award, Bike, BookOpen, Building2, Bus, Car, ChartColumn, ClipboardList, Cpu, Database, Globe,
+  GraduationCap, Handshake, HeartPulse, Layers, Leaf, Lightbulb, Microscope, PenTool, Scale, Search, Send,
+  ShieldCheck, Target, TrainFront, Users,
 };
 
 /** Renders a lucide icon by name (keeps data files serialisable). */

@@ -59,7 +59,7 @@ export default function Services() {
                     </span>
                   ))}
                 </div>
-                <a href="#contact" className="link-arrow mt-8">
+                <a href="/contact" className="link-arrow mt-8">
                   Request this service <ArrowRight className="h-4 w-4" />
                 </a>
               </div>

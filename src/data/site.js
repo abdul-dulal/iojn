@@ -15,15 +15,15 @@ export const site = {
 };
 
 export const navLinks = [
-  { label: "Home", href: "/#home" },
-  { label: "About", href: "/#about" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   { label: "Team", href: "/team" },
-  { label: "Services", href: "/#services" },
-  { label: "Research", href: "/#research" },
-  { label: "Publications", href: "/#publications" },
-  { label: "Events", href: "/#events" },
-  { label: "Resources", href: "/#network" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Services", href: "/services" },
+  { label: "Research", href: "/research" },
+  { label: "Publications", href: "/publications" },
+  { label: "Events", href: "/events" },
+  { label: "Resources", href: "/resources" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const images = {

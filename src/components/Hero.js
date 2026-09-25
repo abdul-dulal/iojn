@@ -117,10 +117,10 @@ export default function Hero() {
           </p>
 
           <div data-hero="copy" className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a href="#services" className="btn btn-primary">
+            <a href="/services" className="btn btn-primary">
               Explore Our Services <ArrowRight className="h-4 w-4" />
             </a>
-            <a href="#contact" className="btn btn-outline">
+            <a href="/contact" className="btn btn-outline">
               <PlayCircle className="h-4 w-4 text-teal" /> Start a Research Project
             </a>
           </div>

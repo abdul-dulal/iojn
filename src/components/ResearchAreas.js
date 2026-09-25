@@ -29,7 +29,7 @@ export default function ResearchAreas() {
           {researchAreas.map((a, i) => (
             <a
               key={a.title}
-              href="#services"
+              href="/research"
               data-reveal="up"
               className="group relative flex flex-col overflow-hidden rounded-3xl border border-line bg-white p-7 shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:border-transparent hover:shadow-lift sm:p-8"
             >

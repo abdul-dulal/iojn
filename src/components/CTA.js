@@ -44,10 +44,10 @@ export default function CTA() {
             Let&apos;s turn your research idea into meaningful knowledge and measurable impact.
           </p>
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-            <a href="/#contact" className="btn bg-white text-navy shadow-lift hover:-translate-y-0.5 hover:bg-offwhite">
+            <a href="/contact" className="btn bg-white text-navy shadow-lift hover:-translate-y-0.5 hover:bg-offwhite">
               <MessageCircle className="h-4 w-4 text-teal" /> Start a Conversation
             </a>
-            <a href="/#services" className="btn btn-ghost-light">
+            <a href="/services" className="btn btn-ghost-light">
               Explore Our Services <ArrowRight className="h-4 w-4" />
             </a>
           </div>

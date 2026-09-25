@@ -30,7 +30,7 @@ export default function Publications() {
       <div className="container-x">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading eyebrow="Publications" title="Latest Research & Publications" />
-          <a data-reveal="up" href="#publications" className="btn btn-outline self-start sm:self-auto">
+          <a data-reveal="up" href="/publications" className="btn btn-outline self-start sm:self-auto">
             View All Publications <ArrowRight className="h-4 w-4" />
           </a>
         </div>
@@ -51,7 +51,7 @@ export default function Publications() {
                 {featured.category}
               </span>
               <h3 className="mt-5 text-2xl leading-snug font-bold text-white sm:text-3xl">
-                <a href="#publications" className="after:absolute after:inset-0">{featured.title}</a>
+                <a href="/publications" className="after:absolute after:inset-0">{featured.title}</a>
               </h3>
               <p className="mt-3 max-w-lg text-white/70">{featured.text}</p>
               <div className="mt-6 flex items-center justify-between gap-4">
@@ -86,7 +86,7 @@ export default function Publications() {
                     <span className="text-xs text-slate">{p.date}</span>
                   </div>
                   <h3 className="mt-4 text-lg leading-snug font-bold transition-colors group-hover:text-royal">
-                    <a href="#publications" className="after:absolute after:inset-0">{p.title}</a>
+                    <a href="/publications" className="after:absolute after:inset-0">{p.title}</a>
                   </h3>
                   <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-slate">{p.text}</p>
                   <span className="link-arrow mt-4">

@@ -64,7 +64,7 @@ export default function ResearchProcess() {
                 />
               ))}
             </div>
-            <a href="#contact" className="link-arrow mt-6">
+            <a href="/contact" className="link-arrow mt-6">
               Plan your project with us <ArrowRight className="h-4 w-4" />
             </a>
           </div>

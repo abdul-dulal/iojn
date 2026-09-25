@@ -58,10 +58,10 @@ export default function Events() {
               </div>
 
               <div className="relative mt-7 flex flex-wrap gap-3">
-                <a href="#contact" className={`btn !px-5 !py-3 ${i === 0 ? "btn-primary" : "btn-dark"}`}>
+                <a href="/contact" className={`btn !px-5 !py-3 ${i === 0 ? "btn-primary" : "btn-dark"}`}>
                   Register <ArrowRight className="h-4 w-4" />
                 </a>
-                <a href="#events" className={`btn !px-5 !py-3 ${i === 0 ? "btn-ghost-light" : "btn-outline"}`}>
+                <a href="/events" className={`btn !px-5 !py-3 ${i === 0 ? "btn-ghost-light" : "btn-outline"}`}>
                   Learn More
                 </a>
               </div>

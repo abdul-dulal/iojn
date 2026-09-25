@@ -98,7 +98,7 @@ export default function About() {
           </figure>
 
           <div data-reveal="up" className="mt-10">
-            <a href="#services" className="btn btn-dark">
+            <a href="/about" className="btn btn-dark">
               Discover Our Story <ArrowRight className="h-4 w-4" />
             </a>
           </div>
