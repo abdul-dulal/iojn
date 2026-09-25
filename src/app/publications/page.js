@@ -8,7 +8,8 @@ import { pageImages } from "@/data/pages";
 
 export const metadata = {
   title: "Publications — IOJN",
-  description: "Browse IOJN's research publications, the journals we manage and how to submit your manuscript.",
+  description:
+    "Browse IOJN's research publications, the journals we manage and how to submit your manuscript.",
 };
 
 export default function PublicationsPage() {
@@ -29,9 +30,9 @@ export default function PublicationsPage() {
         ]}
       />
       <Publications />
-      <Journals />
+      {/* <Journals /> */}
       <PublicationLibrary />
-      <SubmissionGuide />
+      {/* <SubmissionGuide /> */}
     </PageShell>
   );
 }

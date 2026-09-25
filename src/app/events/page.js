@@ -8,7 +8,8 @@ import { pageImages } from "@/data/pages";
 
 export const metadata = {
   title: "Events & Conferences — IOJN",
-  description: "Upcoming conferences, workshops and seminars from IOJN, plus highlights from past events.",
+  description:
+    "Upcoming conferences, workshops and seminars from IOJN, plus highlights from past events.",
 };
 
 export default function EventsPage() {
@@ -27,10 +28,10 @@ export default function EventsPage() {
           { label: "Highlights", href: "#past-events" },
         ]}
       />
-      <FeaturedEvent />
+      {/* <FeaturedEvent /> */}
       <Events />
       <PastEvents />
-      <CTA />
+      {/* <CTA /> */}
     </PageShell>
   );
 }

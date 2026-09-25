@@ -17,7 +17,7 @@ export default function TeamPage() {
       <main>
         <TeamHero />
         <TeamDirectory />
-        <CTA />
+        {/* <CTA /> */}
       </main>
       <Footer />
     </>

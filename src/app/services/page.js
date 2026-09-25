@@ -10,7 +10,8 @@ import { pageImages, serviceFaqs } from "@/data/pages";
 
 export const metadata = {
   title: "Research Services — IOJN",
-  description: "Protocol development, article writing, data analysis, publication support and journal management by IOJN's research experts.",
+  description:
+    "Protocol development, article writing, data analysis, publication support and journal management by IOJN's research experts.",
 };
 
 export default function ServicesPage() {
@@ -33,9 +34,9 @@ export default function ServicesPage() {
       <Services />
       <ServiceDetails />
       <ResearchProcess />
-      <EngagementModels />
-      <FAQ items={serviceFaqs} tone="offwhite" text="Answers to the questions researchers ask us most often." />
-      <CTA />
+      {/* <EngagementModels /> */}
+      {/* <FAQ items={serviceFaqs} tone="offwhite" text="Answers to the questions researchers ask us most often." /> */}
+      {/* <CTA /> */}
     </PageShell>
   );
 }

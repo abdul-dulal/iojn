@@ -26,16 +26,16 @@ export default function Home() {
         <About />
         <Team />
         <ResearchAreas />
-        <Services />
+        {/* <Services /> */}
         <ResearchProcess />
-        <WhyChooseUs />
-        <Achievements />
+        {/* <WhyChooseUs /> */}
+        {/* <Achievements /> */}
         <Publications />
-        <Events />
-        <Testimonials />
+        {/* <Events /> */}
+        {/* <Testimonials /> */}
         <GlobalNetwork />
-        <CTA />
-        <Contact />
+        {/* <CTA /> */}
+        {/* <Contact /> */}
       </main>
       <Footer />
     </>

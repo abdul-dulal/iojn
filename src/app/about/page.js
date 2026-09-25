@@ -11,7 +11,8 @@ import { pageImages } from "@/data/pages";
 
 export const metadata = {
   title: "About IOJN — International Online Journal Network",
-  description: "Learn about IOJN's mission, vision, values and journey since 2020 as an innovative research support centre.",
+  description:
+    "Learn about IOJN's mission, vision, values and journey since 2020 as an innovative research support centre.",
 };
 
 export default function AboutPage() {
@@ -34,10 +35,10 @@ export default function AboutPage() {
       <About />
       <MissionVision />
       <Journey />
-      <Objectives />
-      <Team />
+      {/* <Objectives /> */}
+      {/* <Team /> */}
       <Achievements />
-      <CTA />
+      {/* <CTA /> */}
     </PageShell>
   );
 }

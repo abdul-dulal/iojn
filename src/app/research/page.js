@@ -9,7 +9,8 @@ import { pageImages } from "@/data/pages";
 
 export const metadata = {
   title: "Research — IOJN",
-  description: "Explore IOJN's research focus areas, featured projects and methodologies in public health, environmental health and social development.",
+  description:
+    "Explore IOJN's research focus areas, featured projects and methodologies in public health, environmental health and social development.",
 };
 
 export default function ResearchPage() {
@@ -31,9 +32,9 @@ export default function ResearchPage() {
       />
       <ResearchAreas />
       <ResearchProjects />
-      <Methodologies />
+      {/* <Methodologies /> */}
       <GlobalNetwork />
-      <CTA />
+      {/* <CTA /> */}
     </PageShell>
   );
 }

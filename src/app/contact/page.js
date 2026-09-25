@@ -7,7 +7,8 @@ import { contactFaqs, pageImages } from "@/data/pages";
 
 export const metadata = {
   title: "Contact IOJN",
-  description: "Get in touch with IOJN in Farmgate, Dhaka to discuss your research project, services or partnerships.",
+  description:
+    "Get in touch with IOJN in Farmgate, Dhaka to discuss your research project, services or partnerships.",
 };
 
 export default function ContactPage() {
@@ -27,8 +28,8 @@ export default function ContactPage() {
         ]}
       />
       <Contact />
-      <Directions />
-      <FAQ items={contactFaqs} tone="offwhite" text="Quick answers before you get in touch." />
+      {/* <Directions /> */}
+      {/* <FAQ items={contactFaqs} tone="offwhite" text="Quick answers before you get in touch." /> */}
     </PageShell>
   );
 }

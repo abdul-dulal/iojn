@@ -6,7 +6,8 @@ export const site = {
   fullName: "International Online Journal Network",
   tagline: "Global Research & Innovation Network",
   founded: 2020,
-  address: "20-21 Farmview Super Market, Level 05, Farmgate, Dhaka-1215, Bangladesh",
+  address:
+    "20-21 Farmview Super Market, Level 05, Farmgate, Dhaka-1215, Bangladesh",
   phone: "+880 1917-601590",
   phoneHref: "tel:+8801917601590",
   email: "iojn.org@gmail.com",
@@ -22,7 +23,7 @@ export const navLinks = [
   { label: "Research", href: "/research" },
   { label: "Publications", href: "/publications" },
   { label: "Events", href: "/events" },
-  { label: "Resources", href: "/resources" },
+  // { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -35,10 +36,30 @@ export const images = {
 };
 
 export const stats = [
-  { value: 500, suffix: "+", label: "Research Projects", note: "Completed across 12 disciplines" },
-  { value: 100, suffix: "+", label: "Published Articles", note: "In peer-reviewed journals" },
-  { value: 50, suffix: "+", label: "Academic Partners", note: "Universities & institutes" },
-  { value: 10, suffix: "+", label: "Years of Experience", note: "Collective team expertise" },
+  {
+    value: 500,
+    suffix: "+",
+    label: "Research Projects",
+    note: "Completed across 12 disciplines",
+  },
+  {
+    value: 100,
+    suffix: "+",
+    label: "Published Articles",
+    note: "In peer-reviewed journals",
+  },
+  {
+    value: 50,
+    suffix: "+",
+    label: "Academic Partners",
+    note: "Universities & institutes",
+  },
+  {
+    value: 10,
+    suffix: "+",
+    label: "Years of Experience",
+    note: "Collective team expertise",
+  },
 ];
 
 export const researchAreas = [
@@ -114,22 +135,67 @@ export const services = [
 ];
 
 export const processSteps = [
-  { title: "Research Idea", text: "We refine your question, objectives and significance into a focused research concept." },
-  { title: "Protocol Development", text: "A robust protocol covering design, sampling, instruments and ethical approval." },
-  { title: "Data Collection", text: "Structured field or secondary data collection with quality control at every stage." },
-  { title: "Data Analysis", text: "Rigorous statistical analysis and clear interpretation of the findings." },
-  { title: "Article Development", text: "Findings shaped into a compelling, well-structured scientific manuscript." },
-  { title: "Publication", text: "Targeted journal submission and expert support through peer review." },
-  { title: "Knowledge & Impact", text: "Dissemination to policymakers, practitioners and the wider research community." },
+  {
+    title: "Research Idea",
+    text: "We refine your question, objectives and significance into a focused research concept.",
+  },
+  {
+    title: "Protocol Development",
+    text: "A robust protocol covering design, sampling, instruments and ethical approval.",
+  },
+  {
+    title: "Data Collection",
+    text: "Structured field or secondary data collection with quality control at every stage.",
+  },
+  {
+    title: "Data Analysis",
+    text: "Rigorous statistical analysis and clear interpretation of the findings.",
+  },
+  {
+    title: "Article Development",
+    text: "Findings shaped into a compelling, well-structured scientific manuscript.",
+  },
+  {
+    title: "Publication",
+    text: "Targeted journal submission and expert support through peer review.",
+  },
+  {
+    title: "Knowledge & Impact",
+    text: "Dissemination to policymakers, practitioners and the wider research community.",
+  },
 ];
 
 export const benefits = [
-  { icon: "Award", title: "Experienced Research Professionals", text: "Multidisciplinary experts in health, environment and social science." },
-  { icon: "Microscope", title: "Evidence-Based Approach", text: "Every recommendation grounded in sound methodology and data." },
-  { icon: "Globe", title: "International Collaboration", text: "A network of partners and reviewers across five regions." },
-  { icon: "Send", title: "Professional Publication Support", text: "Guidance from manuscript to acceptance in reputable journals." },
-  { icon: "Database", title: "Data-Driven Research", text: "Modern statistical tools and transparent, reproducible analysis." },
-  { icon: "ShieldCheck", title: "Quality & Confidentiality", text: "Strict data protection, originality checks and ethical standards." },
+  {
+    icon: "Award",
+    title: "Experienced Research Professionals",
+    text: "Multidisciplinary experts in health, environment and social science.",
+  },
+  {
+    icon: "Microscope",
+    title: "Evidence-Based Approach",
+    text: "Every recommendation grounded in sound methodology and data.",
+  },
+  {
+    icon: "Globe",
+    title: "International Collaboration",
+    text: "A network of partners and reviewers across five regions.",
+  },
+  {
+    icon: "Send",
+    title: "Professional Publication Support",
+    text: "Guidance from manuscript to acceptance in reputable journals.",
+  },
+  {
+    icon: "Database",
+    title: "Data-Driven Research",
+    text: "Modern statistical tools and transparent, reproducible analysis.",
+  },
+  {
+    icon: "ShieldCheck",
+    title: "Quality & Confidentiality",
+    text: "Strict data protection, originality checks and ethical standards.",
+  },
 ];
 
 export const achievements = [
@@ -157,7 +223,8 @@ export const publications = [
     category: "Public Health",
     date: "Sep 12, 2026",
     read: "8 min read",
-    title: "Community-Based Interventions for Maternal Health in Low-Resource Settings",
+    title:
+      "Community-Based Interventions for Maternal Health in Low-Resource Settings",
     text: "A mixed-methods evaluation of outreach programs and their effect on antenatal care uptake.",
   },
   {
@@ -165,7 +232,8 @@ export const publications = [
     category: "Environmental Health",
     date: "Aug 28, 2026",
     read: "6 min read",
-    title: "Urban Air Quality and Respiratory Outcomes: A Five-Year Cohort Study",
+    title:
+      "Urban Air Quality and Respiratory Outcomes: A Five-Year Cohort Study",
     text: "Linking particulate exposure data with hospital admissions across rapidly growing cities.",
   },
   {
@@ -255,11 +323,42 @@ export const testimonials = [
 ];
 
 export const regions = [
-  { name: "North America", lon: -98, lat: 40, partners: 8, countries: "USA · Canada" },
-  { name: "Europe", lon: 10, lat: 50, partners: 12, countries: "UK · Germany · Sweden" },
-  { name: "Middle East", lon: 46, lat: 26, partners: 9, countries: "KSA · UAE · Qatar" },
-  { name: "Africa", lon: 22, lat: 4, partners: 6, countries: "Nigeria · Kenya · Egypt" },
-  { name: "Asia", lon: 90, lat: 23.8, partners: 18, countries: "Bangladesh · India · Malaysia", hub: true },
+  {
+    name: "North America",
+    lon: -98,
+    lat: 40,
+    partners: 8,
+    countries: "USA · Canada",
+  },
+  {
+    name: "Europe",
+    lon: 10,
+    lat: 50,
+    partners: 12,
+    countries: "UK · Germany · Sweden",
+  },
+  {
+    name: "Middle East",
+    lon: 46,
+    lat: 26,
+    partners: 9,
+    countries: "KSA · UAE · Qatar",
+  },
+  {
+    name: "Africa",
+    lon: 22,
+    lat: 4,
+    partners: 6,
+    countries: "Nigeria · Kenya · Egypt",
+  },
+  {
+    name: "Asia",
+    lon: 90,
+    lat: 23.8,
+    partners: 18,
+    countries: "Bangladesh · India · Malaysia",
+    hub: true,
+  },
 ];
 
 export const serviceLinks = [
@@ -273,7 +372,13 @@ export const serviceLinks = [
 const portrait = (id) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&crop=faces&w=800&h=1000&q=80`;
 
-export const teamDepartments = ["All", "Leadership", "Research", "Data & Analytics", "Publication"];
+export const teamDepartments = [
+  "All",
+  "Leadership",
+  "Research",
+  "Data & Analytics",
+  "Publication",
+];
 
 // Placeholder team — replace names, photos and links with real IOJN members.
 export const team = [
@@ -282,10 +387,12 @@ export const team = [
     role: "Founder & Executive Director",
     dept: "Leadership",
     image: portrait("1612349317150-e413f6a5b16d"),
-    expertise: "Public health epidemiologist leading IOJN's research strategy and partnerships.",
+    expertise:
+      "Public health epidemiologist leading IOJN's research strategy and partnerships.",
     focus: ["Epidemiology", "Health Policy", "Research Strategy"],
     credentials: "MBBS, MPH, PhD in Epidemiology",
-    quote: "Great research begins with a meaningful question and ends with real change in people's lives.",
+    quote:
+      "Great research begins with a meaningful question and ends with real change in people's lives.",
     links: { linkedin: "#", scholar: "#", email: "mailto:iojn.org@gmail.com" },
   },
   {
@@ -293,7 +400,8 @@ export const team = [
     role: "Head of Public Health Research",
     dept: "Leadership",
     image: portrait("1559839734-2b71ea197ec2"),
-    expertise: "Maternal and community health researcher with 12+ years of field experience.",
+    expertise:
+      "Maternal and community health researcher with 12+ years of field experience.",
     focus: ["Maternal Health", "Community Trials"],
     links: { linkedin: "#", scholar: "#", email: "mailto:iojn.org@gmail.com" },
   },
@@ -302,7 +410,8 @@ export const team = [
     role: "Senior Biostatistician",
     dept: "Data & Analytics",
     image: portrait("1472099645785-5658abf4ff4e"),
-    expertise: "Designs robust statistical models for clinical and population-level studies.",
+    expertise:
+      "Designs robust statistical models for clinical and population-level studies.",
     focus: ["Biostatistics", "R / Stata", "Meta-analysis"],
     links: { linkedin: "#", scholar: "#", email: "mailto:iojn.org@gmail.com" },
   },
@@ -311,7 +420,8 @@ export const team = [
     role: "Director of Publications",
     dept: "Publication",
     image: portrait("1544005313-94ddf0286df2"),
-    expertise: "Former journal editor guiding manuscripts from draft to peer-reviewed acceptance.",
+    expertise:
+      "Former journal editor guiding manuscripts from draft to peer-reviewed acceptance.",
     focus: ["Scientific Writing", "Peer Review"],
     links: { linkedin: "#", scholar: "#", email: "mailto:iojn.org@gmail.com" },
   },
@@ -320,7 +430,8 @@ export const team = [
     role: "Environmental Health Scientist",
     dept: "Research",
     image: portrait("1500648767791-00dcc994a43e"),
-    expertise: "Studies air quality, climate exposure and their impact on urban health.",
+    expertise:
+      "Studies air quality, climate exposure and their impact on urban health.",
     focus: ["Air Quality", "Climate & Health"],
     links: { linkedin: "#", scholar: "#", email: "mailto:iojn.org@gmail.com" },
   },
@@ -329,7 +440,8 @@ export const team = [
     role: "Journal Management Lead",
     dept: "Publication",
     image: portrait("1551836022-d5d88e9218df"),
-    expertise: "Runs editorial workflows, indexing strategy and journal operations.",
+    expertise:
+      "Runs editorial workflows, indexing strategy and journal operations.",
     focus: ["Editorial Ops", "Indexing"],
     links: { linkedin: "#", scholar: "#", email: "mailto:iojn.org@gmail.com" },
   },
@@ -338,7 +450,8 @@ export const team = [
     role: "Data Analyst",
     dept: "Data & Analytics",
     image: portrait("1557862921-37829c790f19"),
-    expertise: "Turns complex datasets into clear visualizations and reproducible reports.",
+    expertise:
+      "Turns complex datasets into clear visualizations and reproducible reports.",
     focus: ["Python", "Visualization", "SPSS"],
     links: { linkedin: "#", scholar: "#", email: "mailto:iojn.org@gmail.com" },
   },
@@ -347,7 +460,8 @@ export const team = [
     role: "Clinical Research Coordinator",
     dept: "Research",
     image: portrait("1594824476967-48c8b964273f"),
-    expertise: "Coordinates protocols, ethics approvals and data collection across sites.",
+    expertise:
+      "Coordinates protocols, ethics approvals and data collection across sites.",
     focus: ["Clinical Trials", "Ethics & IRB"],
     links: { linkedin: "#", scholar: "#", email: "mailto:iojn.org@gmail.com" },
   },
@@ -356,7 +470,8 @@ export const team = [
     role: "Partnerships & Outreach Manager",
     dept: "Leadership",
     image: portrait("1519085360753-af0119f7cbe7"),
-    expertise: "Builds collaborations with universities, NGOs and international agencies.",
+    expertise:
+      "Builds collaborations with universities, NGOs and international agencies.",
     focus: ["Partnerships", "Grants"],
     links: { linkedin: "#", scholar: "#", email: "mailto:iojn.org@gmail.com" },
   },
