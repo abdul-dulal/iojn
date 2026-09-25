@@ -59,7 +59,7 @@ export default function Footer() {
             <ul className="mt-6 space-y-3">
               {serviceLinks.map((s) => (
                 <li key={s}>
-                  <a href="#services" className="text-sm text-white/60 transition-colors hover:text-cyan">
+                  <a href="/#services" className="text-sm text-white/60 transition-colors hover:text-cyan">
                     {s}
                   </a>
                 </li>
@@ -93,7 +93,7 @@ export default function Footer() {
             <a href="#" className="transition-colors hover:text-white">Privacy Policy</a>
             <a href="#" className="transition-colors hover:text-white">Terms of Service</a>
             <a
-              href="#home"
+              href="#"
               aria-label="Back to top"
               className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white transition-all hover:-translate-y-0.5 hover:border-cyan hover:text-cyan"
             >

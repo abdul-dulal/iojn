@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Statistics from "@/components/Statistics";
 import About from "@/components/About";
+import Team from "@/components/Team";
 import ResearchAreas from "@/components/ResearchAreas";
 import Services from "@/components/Services";
 import ResearchProcess from "@/components/ResearchProcess";
@@ -23,6 +24,7 @@ export default function Home() {
         <Hero />
         <Statistics />
         <About />
+        <Team />
         <ResearchAreas />
         <Services />
         <ResearchProcess />

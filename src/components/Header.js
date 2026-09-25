@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, X, Mail, Phone } from "lucide-react";
 import { navLinks, site } from "@/data/site";
 import { Logo, SocialLinks } from "./ui";
@@ -8,7 +9,9 @@ import { Logo, SocialLinks } from "./ui";
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("#home");
+  const pathname = usePathname();
+  const [section, setSection] = useState("/#home");
+  const active = pathname === "/" ? section : pathname;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -17,11 +20,12 @@ export default function Header() {
 
     // Highlight the nav item for the section currently in view
     const sections = navLinks
-      .map((l) => document.querySelector(l.href))
+      .filter((l) => l.href.startsWith("/#"))
+      .map((l) => document.getElementById(l.href.slice(2)))
       .filter(Boolean);
     const io = new IntersectionObserver(
       (entries) =>
-        entries.forEach((e) => e.isIntersecting && setActive(`#${e.target.id}`)),
+        entries.forEach((e) => e.isIntersecting && setSection(`/#${e.target.id}`)),
       { rootMargin: "-45% 0px -50% 0px" }
     );
     sections.forEach((s) => io.observe(s));
@@ -51,7 +55,7 @@ export default function Header() {
         <div className="container-x flex items-center justify-between gap-6">
           <Logo />
 
-          <nav aria-label="Primary" className="hidden lg:block">
+          <nav aria-label="Primary" className="hidden xl:block">
             <ul className="flex items-center gap-1">
               {navLinks.map((l) => (
                 <li key={l.href}>
@@ -74,13 +78,13 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <a href="#contact" className="btn btn-dark hidden !py-3 sm:inline-flex">
+            <a href="/#contact" className="btn btn-dark hidden !py-3 sm:inline-flex">
               Get Started <ArrowRight className="h-4 w-4" />
             </a>
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="grid h-11 w-11 place-items-center rounded-full border border-line bg-white text-navy transition hover:shadow-soft lg:hidden"
+              className="grid h-11 w-11 place-items-center rounded-full border border-line bg-white text-navy transition hover:shadow-soft xl:hidden"
               aria-label="Open menu"
               aria-expanded={open}
               aria-controls="mobile-nav"
@@ -93,7 +97,7 @@ export default function Header() {
 
       {/* Mobile slide-out navigation */}
       <div
-        className={`fixed inset-0 z-[60] lg:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}
+        className={`fixed inset-0 z-[60] xl:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}
         aria-hidden={!open}
       >
         <div
@@ -151,7 +155,7 @@ export default function Header() {
               <Phone className="h-4 w-4 text-cyan" /> {site.phone}
             </a>
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setOpen(false)}
               tabIndex={open ? 0 : -1}
               className="btn btn-primary mt-4 w-full"

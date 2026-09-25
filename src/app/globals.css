@@ -184,7 +184,8 @@
 /* Hero intro: hidden until the GSAP timeline takes over (motion-enabled, JS-enabled only) */
 @media (prefers-reduced-motion: no-preference) {
   .js [data-hero]:not([data-hero="bg"]),
-  .js .hero-line > span {
+  .js .hero-line > span,
+  .js .team-line > span {
     visibility: hidden;
   }
 }

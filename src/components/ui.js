@@ -37,7 +37,7 @@ export function SectionHeading({ eyebrow, title, text, align = "left", dark = fa
 
 export function Logo({ light = false, compact = false }) {
   return (
-    <a href="#home" className="group flex items-center gap-3" aria-label="IOJN home">
+    <a href="/" className="group flex items-center gap-3" aria-label="IOJN home">
       <span className="relative grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-xl bg-brand-gradient shadow-glow transition-transform duration-500 group-hover:rotate-[8deg]">
         <svg viewBox="0 0 32 32" className="h-6 w-6" fill="none" aria-hidden="true">
           <circle cx="16" cy="16" r="10" stroke="white" strokeOpacity=".35" strokeWidth="1.5" />
@@ -88,5 +88,13 @@ export function SocialLinks({ className = "" }) {
         </a>
       ))}
     </div>
+  );
+}
+
+export function BrandIcon({ name, className = "h-4 w-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <path d={brandPaths[name]} />
+    </svg>
   );
 }
