@@ -1,49 +1,190 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "tailwindcss";
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  --color-navy: #0b1f33;
+  --color-navy-900: #071524;
+  --color-navy-800: #0e2740;
+  --color-royal: #145da0;
+  --color-teal: #0f8b8d;
+  --color-cyan: #57c7c8;
+  --color-offwhite: #f7fafc;
+  --color-mist: #eef4f8;
+  --color-ink: #172033;
+  --color-slate: #667085;
+  --color-line: #e3eaf1;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-manrope), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 1px 2px rgb(11 31 51 / 0.04), 0 8px 24px -12px rgb(11 31 51 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(11 31 51 / 0.04), 0 24px 48px -20px rgb(11 31 51 / 0.25);
+  --shadow-glow: 0 18px 40px -16px rgb(15 139 141 / 0.55);
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-pulse-ring: pulse-ring 2.4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+  --animate-float: float 7s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes pulse-ring {
+    0% { transform: scale(0.6); opacity: 0.7; }
+    100% { transform: scale(2.6); opacity: 0; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
 }
 
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   html {
-    color-scheme: dark;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-white font-sans text-ink;
+    overflow-x: clip;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-ink;
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background: rgb(87 199 200 / 0.35);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+  .section-y {
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold tracking-[0.18em] text-teal uppercase;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-6 bg-current;
+  }
+  .heading-xl {
+    @apply font-display text-4xl leading-[1.08] font-extrabold sm:text-5xl lg:text-6xl;
+  }
+  .heading-lg {
+    @apply font-display text-3xl leading-[1.12] font-bold sm:text-4xl lg:text-[2.75rem];
+  }
+  .lead {
+    @apply text-base leading-relaxed text-slate sm:text-lg;
+  }
+  .text-gradient {
+    background: linear-gradient(120deg, #57c7c8 0%, #0f8b8d 45%, #145da0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, #0b1f33 0%, #145da0 55%, #0f8b8d 100%);
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(11 31 51 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(11 31 51 / 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .bg-grid-dark {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .glass {
+    @apply border border-white/60 bg-white/75 backdrop-blur-xl;
+  }
+  .glass-dark {
+    @apply border border-white/10 bg-white/[0.06] backdrop-blur-xl;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-6 py-3.5 text-sm font-semibold whitespace-nowrap transition-all duration-300 ease-out select-none;
+  }
+  .btn svg {
+    @apply transition-transform duration-300;
+  }
+  .btn:hover svg {
+    transform: translateX(3px);
+  }
+  .btn:active {
+    transform: scale(0.97);
+  }
+  .btn-primary {
+    @apply bg-teal text-white shadow-glow hover:-translate-y-0.5 hover:bg-[#0c7a7c];
+  }
+  .btn-dark {
+    @apply bg-navy text-white hover:-translate-y-0.5 hover:bg-navy-800 hover:shadow-lift;
+  }
+  .btn-outline {
+    @apply border border-navy/15 bg-white text-navy hover:-translate-y-0.5 hover:border-navy/30 hover:shadow-soft;
+  }
+  .btn-ghost-light {
+    @apply border border-white/25 bg-white/5 text-white backdrop-blur hover:-translate-y-0.5 hover:border-white/50 hover:bg-white/10;
+  }
+
+  .link-arrow {
+    @apply inline-flex items-center gap-2 text-sm font-semibold text-royal transition-colors hover:text-teal;
+  }
+  .link-arrow svg {
+    @apply transition-transform duration-300;
+  }
+  .link-arrow:hover svg {
+    transform: translateX(4px);
+  }
+
+  .card {
+    @apply rounded-3xl border border-line bg-white shadow-soft;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-line bg-offwhite px-4 py-3.5 text-sm text-ink transition outline-none placeholder:text-slate/70 focus:border-teal focus:bg-white focus:ring-4 focus:ring-teal/10;
+  }
+}
+
+/* Reveal: hidden only when JS is available, so content never disappears without it */
+.js [data-reveal] {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js [data-reveal] { opacity: 1 !important; transform: none !important; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Swiper pagination theming */
+.testimonial-swiper .swiper-pagination-bullet {
+  @apply h-2 w-2 bg-navy/20 opacity-100 transition-all duration-300;
+}
+.testimonial-swiper .swiper-pagination-bullet-active {
+  @apply w-7 rounded-full bg-teal;
+}
+
+/* Hero intro: hidden until the GSAP timeline takes over (motion-enabled, JS-enabled only) */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-hero]:not([data-hero="bg"]),
+  .js .hero-line > span {
+    visibility: hidden;
   }
 }
