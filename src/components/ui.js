@@ -1,13 +1,62 @@
 import {
-  Atom, Award, Bike, BookOpen, Building2, Bus, Car, ChartColumn, Circle, ClipboardList, Cpu, Database, Globe,
-  GraduationCap, Handshake, HeartPulse, Layers, Leaf, Lightbulb, Microscope, PenTool, Scale, Search, Send,
-  ShieldCheck, Target, TrainFront, Users,
+  Atom,
+  Award,
+  Bike,
+  BookOpen,
+  Building2,
+  Bus,
+  Car,
+  ChartColumn,
+  Circle,
+  ClipboardList,
+  Cpu,
+  Database,
+  Globe,
+  GraduationCap,
+  Handshake,
+  HeartPulse,
+  Layers,
+  Leaf,
+  Lightbulb,
+  Microscope,
+  PenTool,
+  Scale,
+  Search,
+  Send,
+  ShieldCheck,
+  Target,
+  TrainFront,
+  Users,
 } from "lucide-react";
 
 const icons = {
-  Atom, Award, Bike, BookOpen, Building2, Bus, Car, ChartColumn, ClipboardList, Cpu, Database, Globe,
-  GraduationCap, Handshake, HeartPulse, Layers, Leaf, Lightbulb, Microscope, PenTool, Scale, Search, Send,
-  ShieldCheck, Target, TrainFront, Users,
+  Atom,
+  Award,
+  Bike,
+  BookOpen,
+  Building2,
+  Bus,
+  Car,
+  ChartColumn,
+  ClipboardList,
+  Cpu,
+  Database,
+  Globe,
+  GraduationCap,
+  Handshake,
+  HeartPulse,
+  Layers,
+  Leaf,
+  Lightbulb,
+  Microscope,
+  PenTool,
+  Scale,
+  Search,
+  Send,
+  ShieldCheck,
+  Target,
+  TrainFront,
+  Users,
 };
 
 /** Renders a lucide icon by name (keeps data files serialisable). */
@@ -16,20 +65,35 @@ export function Icon({ name, ...props }) {
   return <Cmp aria-hidden="true" {...props} />;
 }
 
-export function SectionHeading({ eyebrow, title, text, align = "left", dark = false, className = "" }) {
+export function SectionHeading({
+  eyebrow,
+  title,
+  text,
+  align = "left",
+  dark = false,
+  className = "",
+}) {
   const centered = align === "center";
   return (
-    <div className={`${centered ? "mx-auto max-w-3xl text-center" : "max-w-2xl"} ${className}`}>
+    <div
+      className={`${centered ? "mx-auto max-w-3xl text-center" : "max-w-2xl"} ${className}`}
+    >
       {eyebrow && (
         <span data-reveal="up" className={`eyebrow ${dark ? "text-cyan" : ""}`}>
           {eyebrow}
         </span>
       )}
-      <h2 data-reveal="up" className={`heading-lg mt-4 ${dark ? "text-white" : ""}`}>
+      <h2
+        data-reveal="up"
+        className={`heading-lg mt-4 ${dark ? "text-white" : ""}`}
+      >
         {title}
       </h2>
       {text && (
-        <p data-reveal="up" className={`lead mt-5 ${dark ? "text-white/65" : ""}`}>
+        <p
+          data-reveal="up"
+          className={`lead mt-5 ${dark ? "text-white/65" : ""}`}
+        >
           {text}
         </p>
       )}
@@ -39,22 +103,51 @@ export function SectionHeading({ eyebrow, title, text, align = "left", dark = fa
 
 export function Logo({ light = false, compact = false }) {
   return (
-    <a href="/" className="group flex items-center gap-3" aria-label="IOJN home">
+    <a
+      href="/"
+      className="group flex items-center gap-3"
+      aria-label="IOJN home"
+    >
       <span className="relative grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-xl bg-brand-gradient shadow-glow transition-transform duration-500 group-hover:rotate-[8deg]">
-        <svg viewBox="0 0 32 32" className="h-6 w-6" fill="none" aria-hidden="true">
-          <circle cx="16" cy="16" r="10" stroke="white" strokeOpacity=".35" strokeWidth="1.5" />
-          <ellipse cx="16" cy="16" rx="10" ry="4" stroke="white" strokeOpacity=".6" strokeWidth="1.5" transform="rotate(-35 16 16)" />
+        <svg
+          viewBox="0 0 32 32"
+          className="h-6 w-6"
+          fill="none"
+          aria-hidden="true"
+        >
+          <circle
+            cx="16"
+            cy="16"
+            r="10"
+            stroke="white"
+            strokeOpacity=".35"
+            strokeWidth="1.5"
+          />
+          <ellipse
+            cx="16"
+            cy="16"
+            rx="10"
+            ry="4"
+            stroke="white"
+            strokeOpacity=".6"
+            strokeWidth="1.5"
+            transform="rotate(-35 16 16)"
+          />
           <circle cx="16" cy="16" r="3" fill="white" />
           <circle cx="24.5" cy="10" r="1.8" fill="#57C7C8" />
           <circle cx="7.5" cy="22" r="1.4" fill="#57C7C8" />
         </svg>
       </span>
       <span className="flex flex-col leading-none">
-        <span className={`font-display text-xl font-extrabold tracking-tight ${light ? "text-white" : "text-navy"}`}>
-          IOJN
+        <span
+          className={`font-display text-xl font-extrabold tracking-tight ${light ? "text-white" : "text-navy"}`}
+        >
+          IJA
         </span>
         {!compact && (
-          <span className={`mt-1 text-[10px] font-medium tracking-[0.14em] uppercase ${light ? "text-white/55" : "text-slate"}`}>
+          <span
+            className={`mt-1 text-[10px] font-medium tracking-[0.14em] uppercase ${light ? "text-white/55" : "text-slate"}`}
+          >
             Research Network
           </span>
         )}
@@ -84,7 +177,12 @@ export function SocialLinks({ className = "" }) {
           aria-label={name}
           className="grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan/50 hover:bg-cyan/10 hover:text-cyan"
         >
-          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            className="h-4 w-4"
+            fill="currentColor"
+            aria-hidden="true"
+          >
             <path d={d} />
           </svg>
         </a>
@@ -95,7 +193,12 @@ export function SocialLinks({ className = "" }) {
 
 export function BrandIcon({ name, className = "h-4 w-4" }) {
   return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="currentColor"
+      aria-hidden="true"
+    >
       <path d={brandPaths[name]} />
     </svg>
   );

@@ -14,7 +14,7 @@ const manrope = Manrope({
 });
 
 export const metadata = {
-  title: "IOJN — International Online Journal Network | Research. Innovation. Impact.",
+  title: "International journal Alliance",
   description:
     "IOJN supports researchers, academics, institutions and organizations through protocol development, data analysis, article writing, publication support and journal management.",
 };
