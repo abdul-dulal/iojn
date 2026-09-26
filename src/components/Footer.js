@@ -1,8 +1,8 @@
 import { ArrowRight, ArrowUp, Mail, MapPin, Phone } from "lucide-react";
-import { navLinks, serviceLinks, site } from "@/data/site";
+import { flatNavLinks, serviceLinks, site } from "@/data/site";
 import { Logo, SocialLinks } from "./ui";
 
-const quickLinks = navLinks.filter(
+const quickLinks = flatNavLinks.filter(
   (l) => !["Home", "Resources"].includes(l.label),
 );
 

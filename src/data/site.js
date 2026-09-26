@@ -17,15 +17,23 @@ export const site = {
 
 export const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Team", href: "/team" },
+  {
+    label: "Discover Us",
+    children: [
+      { label: "About", href: "/about" },
+      { label: "Team", href: "/team" },
+      { label: "Events", href: "/events" },
+    ],
+  },
   { label: "Services", href: "/services" },
   { label: "Research", href: "/research" },
   { label: "Publications", href: "/publications" },
-  { label: "Events", href: "/events" },
   // { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
 ];
+
+// Flat list of every nav page (dropdown children included)
+export const flatNavLinks = navLinks.flatMap((l) => l.children ?? [l]);
 
 export const images = {
   heroMain: img("1581091226825-a6a2a5aee158", 1100),

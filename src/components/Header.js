@@ -3,18 +3,24 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Menu, X, Mail, Phone } from "lucide-react";
-import { navLinks, site } from "@/data/site";
+import { ArrowRight, ChevronDown, Menu, X, Mail, Phone } from "lucide-react";
+import { flatNavLinks, navLinks, site } from "@/data/site";
 import { Logo, SocialLinks } from "./ui";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [dropdown, setDropdown] = useState(null);
+  const [mobileSub, setMobileSub] = useState(null);
   const pathname = usePathname();
   // Highlight the nav item for the current page (and its sub-pages)
   const active =
-    navLinks.find((l) => l.href !== "/" && pathname.startsWith(l.href))?.href ??
+    flatNavLinks.find((l) => l.href !== "/" && pathname.startsWith(l.href))?.href ??
     (pathname === "/" ? "/" : null);
+  const isActive = (l) => (l.children ? l.children.some((c) => c.href === active) : l.href === active);
+
+  // Close the desktop dropdown whenever the route changes
+  useEffect(() => setDropdown(null), [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -47,23 +53,75 @@ export default function Header() {
 
           <nav aria-label="Primary" className="hidden xl:block">
             <ul className="flex items-center gap-1">
-              {navLinks.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className={`relative rounded-full px-3.5 py-2 text-sm font-medium transition-colors duration-300 ${
-                      active === l.href ? "text-navy" : "text-slate hover:text-navy"
-                    }`}
+              {navLinks.map((l) =>
+                l.children ? (
+                  <li
+                    key={l.label}
+                    className="relative"
+                    onMouseEnter={() => setDropdown(l.label)}
+                    onMouseLeave={() => setDropdown(null)}
                   >
-                    {l.label}
-                    <span
-                      className={`absolute inset-x-3.5 -bottom-0.5 h-0.5 origin-left rounded-full bg-teal transition-transform duration-500 ${
-                        active === l.href ? "scale-x-100" : "scale-x-0"
+                    <button
+                      type="button"
+                      onClick={() => setDropdown(dropdown === l.label ? null : l.label)}
+                      aria-expanded={dropdown === l.label}
+                      aria-haspopup="true"
+                      className={`relative flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium transition-colors duration-300 ${
+                        isActive(l) ? "text-navy" : "text-slate hover:text-navy"
                       }`}
-                    />
-                  </Link>
-                </li>
-              ))}
+                    >
+                      {l.label}
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-300 ${dropdown === l.label ? "rotate-180" : ""}`}
+                      />
+                      <span
+                        className={`absolute inset-x-3.5 -bottom-0.5 h-0.5 origin-left rounded-full bg-teal transition-transform duration-500 ${
+                          isActive(l) ? "scale-x-100" : "scale-x-0"
+                        }`}
+                      />
+                    </button>
+                    <div
+                      className={`absolute left-0 top-full pt-3 transition-all duration-300 ${
+                        dropdown === l.label
+                          ? "visible translate-y-0 opacity-100"
+                          : "invisible -translate-y-2 opacity-0"
+                      }`}
+                    >
+                      <ul className="min-w-48 rounded-2xl border border-line bg-white p-2 shadow-[0_20px_40px_-20px_rgba(11,31,51,0.35)]">
+                        {l.children.map((c) => (
+                          <li key={c.href}>
+                            <Link
+                              href={c.href}
+                              className={`flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-medium transition-colors duration-300 ${
+                                active === c.href ? "bg-teal/10 text-navy" : "text-slate hover:bg-teal/5 hover:text-navy"
+                              }`}
+                            >
+                              {c.label}
+                              <ArrowRight className="h-3.5 w-3.5 opacity-40" />
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </li>
+                ) : (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      className={`relative rounded-full px-3.5 py-2 text-sm font-medium transition-colors duration-300 ${
+                        isActive(l) ? "text-navy" : "text-slate hover:text-navy"
+                      }`}
+                    >
+                      {l.label}
+                      <span
+                        className={`absolute inset-x-3.5 -bottom-0.5 h-0.5 origin-left rounded-full bg-teal transition-transform duration-500 ${
+                          isActive(l) ? "scale-x-100" : "scale-x-0"
+                        }`}
+                      />
+                    </Link>
+                  </li>
+                ),
+              )}
             </ul>
           </nav>
 
@@ -117,21 +175,63 @@ export default function Header() {
             <ul className="space-y-1">
               {navLinks.map((l, i) => (
                 <li
-                  key={l.href}
+                  key={l.href ?? l.label}
                   style={{ transitionDelay: open ? `${120 + i * 45}ms` : "0ms" }}
                   className={`transition-all duration-500 ${open ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0"}`}
                 >
-                  <Link
-                    href={l.href}
-                    onClick={() => setOpen(false)}
-                    tabIndex={open ? 0 : -1}
-                    className={`flex items-center justify-between border-b border-white/10 py-4 font-display text-2xl font-semibold ${
-                      active === l.href ? "text-cyan" : "text-white"
-                    }`}
-                  >
-                    {l.label}
-                    <ArrowRight className="h-5 w-5 opacity-40" />
-                  </Link>
+                  {l.children ? (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => setMobileSub(mobileSub === l.label ? null : l.label)}
+                        tabIndex={open ? 0 : -1}
+                        aria-expanded={mobileSub === l.label}
+                        className={`flex w-full items-center justify-between border-b border-white/10 py-4 text-left font-display text-2xl font-semibold ${
+                          isActive(l) ? "text-cyan" : "text-white"
+                        }`}
+                      >
+                        {l.label}
+                        <ChevronDown
+                          className={`h-5 w-5 opacity-60 transition-transform duration-300 ${mobileSub === l.label ? "rotate-180" : ""}`}
+                        />
+                      </button>
+                      <div
+                        className={`grid transition-all duration-500 ${
+                          mobileSub === l.label ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                        }`}
+                      >
+                        <ul className="overflow-hidden pl-4">
+                          {l.children.map((c) => (
+                            <li key={c.href}>
+                              <Link
+                                href={c.href}
+                                onClick={() => setOpen(false)}
+                                tabIndex={open && mobileSub === l.label ? 0 : -1}
+                                className={`flex items-center justify-between border-b border-white/5 py-3 text-lg font-medium ${
+                                  active === c.href ? "text-cyan" : "text-white/80"
+                                }`}
+                              >
+                                {c.label}
+                                <ArrowRight className="h-4 w-4 opacity-40" />
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
+                  ) : (
+                    <Link
+                      href={l.href}
+                      onClick={() => setOpen(false)}
+                      tabIndex={open ? 0 : -1}
+                      className={`flex items-center justify-between border-b border-white/10 py-4 font-display text-2xl font-semibold ${
+                        isActive(l) ? "text-cyan" : "text-white"
+                      }`}
+                    >
+                      {l.label}
+                      <ArrowRight className="h-5 w-5 opacity-40" />
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
