@@ -2,7 +2,7 @@ const img = (id, w = 1200) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
 
 export const site = {
-  name: "IOJN",
+  name: "IJA",
   fullName: "International Online Journal Network",
   tagline: "Global Research & Innovation Network",
   founded: 2020,
@@ -10,7 +10,7 @@ export const site = {
     "20-21 Farmview Super Market, Level 05, Farmgate, Dhaka-1215, Bangladesh",
   phone: "+880 1917-601590",
   phoneHref: "tel:+8801917601590",
-  email: "iojn.org@gmail.com",
+  email: "ija.org@gmail.com",
   hours: "Sat – Thu, 9:00 AM – 6:00 PM",
   mapQuery: "Farmview Super Market, Farmgate, Dhaka",
 };
